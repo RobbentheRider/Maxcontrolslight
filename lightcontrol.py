@@ -1,10 +1,12 @@
-rom telegram.ext import Updater,CommandHandler,MessageHandler,Filters
+!pip3 install adafruit-io
+!pip install python-telegram-bot
+from telegram.ext import Updater,CommandHandler,MessageHandler,Filters
 from Adafruit_IO import Client,Data
 import os
 
-ADAFRUIT_IO_USERNAME = os.getenv('ADAFRUIT_IO_USERNAME')
-ADAFRUIT_IO_KEY = os.getenv('ADAFRUIT_IO_KEY')
-TOKEN = os.getenv('TOKEN')
+ADAFRUIT_IO_USERNAME = os.getenv("RobbenTheRider")
+ADAFRUIT_IO_KEY = os.getenv("aio_aQrS06TUBQKcllgEs0tFzqzKy1UZ")
+TOKEN = os.getenv("1029084472:AAFFIvFSYTKpdbySQzk1do376_HGGbGfj9c")
 aio = Client(ADAFRUIT_IO_USERNAME,ADAFRUIT_IO_KEY)
 
 def turnoff(update, context):
@@ -40,7 +42,7 @@ def start(update,context):
   context.bot.send_message(chat_id=update.effective_chat.id, text=start_message)
 
 
-updater=Updater(TOKEN,use_context=True)
+updater=Updater('1029084472:AAFFIvFSYTKpdbySQzk1do376_HGGbGfj9c',use_context=True)
 dispatcher = updater.dispatcher
 dispatcher.add_handler(CommandHandler('turnoff',turnoff))
 dispatcher.add_handler(CommandHandler('turnon',turnon))
