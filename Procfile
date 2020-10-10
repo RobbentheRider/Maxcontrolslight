@@ -1,1 +1,1 @@
-
+worker: python lightcontrol.py
